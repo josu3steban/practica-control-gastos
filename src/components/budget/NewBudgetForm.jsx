@@ -1,41 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
-export const NewBudgetForm = ( { budget, setBudget } ) => {
+export const NewBudgetForm = ( { budget, setBudget, setIsValidBudget } ) => {
+
+    // const [ error, setError ] = useState( false );
 
     const handleSubmit = ( e ) => {
-        
+
         e.preventDefault();
-        
-        const valueToNumber = Number(budget);
 
-        if( !!valueToNumber && (valueToNumber>=0) ) {
+        if( !!budget && (budget>=0) ) {
 
-            console.log('Dato Correcto');
+            setIsValidBudget(true);
 
         } else {
 
-            console.log('Dato incorrecto')
+            setIsValidBudget(false);
+            Swal.fire({
+                icon: 'error',
+                title: 'ERROR',
+                text: 'El presupuesto es incorrecto',   
+            });
+
         }
     }
     
   return (
-    <div className='contendor-presupuesto contenedor sombra'>
+    <div className=''>
         
         <form className='formulario' onSubmit={ handleSubmit }>
             <div className='campo'>
 
-                <label htmlFor="budget">Definir Presupuesto</label>
+                <label
+                    htmlFor="budget"
+                    className='font-texto'
+                >Definir Presupuesto</label>
+
                 <input
-                    type="text"
+                    type="number"
                     id='budget'
                     name='budget'
                     className='nuevo-presupuesto'
                     placeholder='Ingrese su presupuesto'
                     value={ budget }
-                    onChange = { (e) => setBudget( e.target.value ) }
+                    onChange = { (e) => setBudget( Number(e.target.value) ) }
                 />
 
             </div>
+
+            
+            
 
             <input
                 type='submit'

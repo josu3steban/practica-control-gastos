@@ -22,14 +22,15 @@ html {
     box-sizing: inherit;
 }
 
-.font-titulo {
+/* .font-titulo {
     font-family: 'Acme', sans-serif;
 }
 .font-subtitulo {
     font-family: 'Patrick Hand', cursive;
-}
+} */
 .font-texto {
-    font-family: 'Roboto', sans-serifif;
+    font-family: 'Signika', sans-serif;
+    font-weight: 600;
 }
 
 .fijar {
@@ -39,9 +40,12 @@ html {
 
 h1 {
     font-size: 4rem;
+    font-family: 'Acme', sans-serif;
 }
 h2 {
     font-size: 3rem;
+    font-family: 'Signika', sans-serif;
+    font-weight: 600;
 }
 
 .sombra {
@@ -106,11 +110,13 @@ header h1 {
     padding: 1rem;
     border: none;
     flex: 1;
+    font-family: 'Signika', sans-serif;
     font-size: 1.6rem;
 }
 .formulario input[type="submit"] {
     background-color: #1048a4;
     border: none;
+    border-radius: 1rem;
     padding: 1rem;
     text-align: center;
     margin-top: 2rem;
@@ -413,4 +419,20 @@ body .modal {
     align-items: center;
     font-size: 2.4rem;
     text-align: right;
+}
+
+.error {
+    color: red;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.dos-columnas-v2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
 }
