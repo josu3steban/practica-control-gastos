@@ -196,6 +196,7 @@ export const BudgetModal = ({ setModal, animateModal, budgetList, setAnimateModa
                         <option value="casa">Casa</option>
                         <option value="salud">Salud</option>
                         <option value="ocio">Ocio</option>
+                        <option value="varios">Gastos Varios</option>
                     </select>
                 </div>
 

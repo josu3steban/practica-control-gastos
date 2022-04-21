@@ -4,6 +4,7 @@ import NewItemIcon from './assets/img/nuevo-gasto.svg';
 import { BudgetModal } from './components/budget/BudgetModal';
 import { BudgetListContainer } from './components/budget/BudgetListContainer';
 import Swal from 'sweetalert2';
+import { FilterExpense } from './components/budget/FilterExpense';
 
 const App = () => {
 
@@ -25,6 +26,12 @@ const App = () => {
   //Contola el gasto a editar
   const [ editExpense, setEditExpense ] = useState({});
 
+  //Controla el Filtro de la categoria
+  const [ filter, setFilter ] = useState("");
+
+  //Controla la lista filtrada
+  const [ filteredList, setFilteredList ] = useState([]);
+
   //Si se desliza para editar, el effect compruab si hubo modificacion el esatdo de ditar y abre el modal
   useEffect( () => {
     if( Object.keys( editExpense ).length > 0 ) {
@@ -39,6 +46,14 @@ const App = () => {
       
     }
   }, [editExpense]);
+
+  //Filtrar la lista de gastos
+  useEffect( () => {
+    if(!!filter) {
+      const filtered = budgetList.filter( (item) => item.budgetCategory === filter );
+      setFilteredList(filtered);
+    }
+  }, [filter]);
 
   //Cargar del localStorage
   useEffect( () => {
@@ -118,10 +133,17 @@ const App = () => {
         (
           <>
             <main>
+              <FilterExpense
+                filter = {filter}
+                setFilter = {setFilter}
+              />
+              
               <BudgetListContainer
                 budgetList = { budgetList }
                 setEditExpense = { setEditExpense }
                 deleteExpense = { deleteExpense }
+                filter = { filter }
+                filteredList = { filteredList }
               />
             </main>
 
