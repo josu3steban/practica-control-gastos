@@ -436,3 +436,7 @@ body .modal {
     align-items: center;
     gap: 4rem;
 }
+
+.centrar-texto {
+    text-align: center;
+}

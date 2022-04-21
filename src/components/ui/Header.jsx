@@ -1,7 +1,7 @@
 import React from 'react'
 import { BudgetControlContainer } from '../budget/BudgetControlContainer'
 
-export const Header = ( { budget, setBudget, isValidBudget, setIsValidBudget } ) => {
+export const Header = ( { budget, setBudget, isValidBudget, setIsValidBudget, budgetList, setBudgetList } ) => {
   return (
 
     <header>
@@ -15,6 +15,8 @@ export const Header = ( { budget, setBudget, isValidBudget, setIsValidBudget } )
             setBudget   = { setBudget }
             isValidBudget = { isValidBudget }
             setIsValidBudget = { setIsValidBudget }
+            budgetList = { budgetList }
+            setBudgetList = { setBudgetList }
         />
         
     </header>
